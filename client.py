@@ -23,7 +23,7 @@ def shell(command):
     output = subcommand.stdout.read()
     if output.split() == []:
         error = subcommand.stderr.readlines()
-        print >>sys.stderr, "ERROR: %s" % error
+        #print >>sys.stderr, "ERROR: %s" % error
     else:
         return output
 
@@ -42,7 +42,7 @@ while r.text != "-1":
     
     r = requests.get("http://10.11.4.253:8080/msgs")
 
-    shell("echo %s >> %s" % (r, args.path))
+    shell("echo %s >> %s" % (r.text, args.path))
 
 
 
